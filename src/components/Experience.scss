@@ -1,0 +1,46 @@
+.experience-section {
+  .jobs-container {
+    .job {
+      margin-bottom: 50px;
+
+      .job-title {
+        font-size: 24px;
+        color: var(--text-primary);
+        
+        .company {
+          color: var(--accent);
+        }
+      }
+
+      .job-period {
+        font-family: var(--font-mono);
+        font-size: 15px;
+        color: var(--text-secondary);
+        margin-bottom: 24px;
+      }
+
+      .job-details {
+        list-style: none;
+        padding: 0;
+
+        li {
+          position: relative;
+          padding-left: 30px;
+          margin-bottom: 14px;
+          color: var(--text-secondary);
+          font-size: 18px;
+          line-height: 1.6;
+
+          &::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 20px;
+            line-height: 28px;
+          }
+        }
+      }
+    }
+  }
+}
