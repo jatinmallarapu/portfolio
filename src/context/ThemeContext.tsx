@@ -14,14 +14,9 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [theme, setTheme] = useState<Theme>('dark');
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem('app-theme') as Theme | null;
-    if (savedTheme) {
-      setTheme(savedTheme);
-      document.documentElement.setAttribute('data-theme', savedTheme);
-    } else {
-      // Default to dark
-      document.documentElement.setAttribute('data-theme', 'dark');
-    }
+    // Always open in dark mode by default
+    setTheme('dark');
+    document.documentElement.setAttribute('data-theme', 'dark');
   }, []);
 
   const toggleTheme = () => {
