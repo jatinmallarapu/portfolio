@@ -91,14 +91,6 @@ const Navbar = () => {
             transition={{ duration: 0.4, delay: navLinks.length * 0.08 }}
             className="nav-actions"
           >
-            <a 
-              href={`${import.meta.env.BASE_URL}JatinMallarapu_Resume.pdf`} 
-              target="_blank" 
-              rel="noreferrer" 
-              className="btn resume-btn"
-            >
-              Resume
-            </a>
             <motion.button 
               onClick={toggleTheme} 
               className="theme-toggle" 
@@ -159,14 +151,7 @@ const Navbar = () => {
                 {link.name}
               </a>
             ))}
-            <a 
-              href={`${import.meta.env.BASE_URL}JatinMallarapu_Resume.pdf`} 
-              target="_blank" 
-              rel="noreferrer" 
-              className="btn mobile-resume-btn"
-            >
-              Resume
-            </a>
+
             <button onClick={toggleTheme} className="theme-toggle-mobile">
               {theme === 'dark' ? <FiSun /> : <FiMoon />}
               <span>{theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</span>
