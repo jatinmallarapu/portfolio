@@ -70,32 +70,30 @@ const Connect = () => {
           </p>
 
           <div className="info-cards">
-            <div className="contact-cards-row">
-              <motion.div 
-                className="info-card"
-                whileHover={{ scale: 1.02 }}
-                transition={{ type: 'spring', stiffness: 300 }}
-              >
-                <div className="card-left">
-                  <FiMail className="card-icon" />
-                  <a href={`mailto:${resumeData.email}`} className="card-text">{resumeData.email}</a>
-                </div>
-                <button className="copy-btn" onClick={handleCopy} aria-label="Copy email">
-                  {copied ? <FiCheck /> : <FiCopy />}
-                </button>
-              </motion.div>
+            <motion.div 
+              className="info-card"
+              whileHover={{ scale: 1.02 }}
+              transition={{ type: 'spring', stiffness: 300 }}
+            >
+              <div className="card-left">
+                <FiMail className="card-icon" />
+                <a href={`mailto:${resumeData.email}`} className="card-text">{resumeData.email}</a>
+              </div>
+              <button className="copy-btn" onClick={handleCopy} aria-label="Copy email">
+                {copied ? <FiCheck /> : <FiCopy />}
+              </button>
+            </motion.div>
 
-              <motion.div 
-                className="info-card"
-                whileHover={{ scale: 1.02 }}
-                transition={{ type: 'spring', stiffness: 300 }}
-              >
-                <div className="card-left">
-                  <FiPhone className="card-icon" />
-                  <a href={`tel:${resumeData.phone.replace(/[^0-9+]/g, '')}`} className="card-text">{resumeData.phone}</a>
-                </div>
-              </motion.div>
-            </div>
+            <motion.div 
+              className="info-card"
+              whileHover={{ scale: 1.02 }}
+              transition={{ type: 'spring', stiffness: 300 }}
+            >
+              <div className="card-left">
+                <FiPhone className="card-icon" />
+                <a href={`tel:${resumeData.phone.replace(/[^0-9+]/g, '')}`} className="card-text">{resumeData.phone}</a>
+              </div>
+            </motion.div>
 
             <motion.div 
               className="info-card"
