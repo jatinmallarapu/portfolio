@@ -81,22 +81,38 @@ const Hero: React.FC = () => {
             </p>
           </motion.div>
 
+          {/* Official Availability Status Alert Banner */}
+          <motion.div 
+            className="availability-banner"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.45 }}
+          >
+            <span className="status-indicator"></span>
+            <div className="availability-info">
+              <strong>Available May 2026</strong> for full-time roles. Authorized to work in the US on OPT (STEM OPT eligible). Open to relocate.
+            </div>
+          </motion.div>
+
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
             className="hero-buttons"
           >
+            <a href="#projects" className="btn hero-btn">
+              Explore Work
+            </a>
             <a href="#connect" className="btn hero-btn">
               Get In Touch
             </a>
-            <a href={`${import.meta.env.BASE_URL}JatinMallarapu_Resume.pdf`} target="_blank" rel="noreferrer" className="btn hero-btn">
+            <a href={`${import.meta.env.BASE_URL}JatinMallarapu_Resume.pdf`} target="_blank" rel="noreferrer" className="btn hero-btn download-btn">
               Download Resume
             </a>
           </motion.div>
         </div>
 
-        {/* Right Side: Photo with Spinning Ring and Status Badge */}
+        {/* Right Side: Middle-aligned Circular Avatar with Spinning Ring & Status Badge */}
         <motion.div
           className="hero-visual"
           initial={{ opacity: 0, scale: 0.8 }}
@@ -108,7 +124,7 @@ const Hero: React.FC = () => {
             <div className="avatar-inner">
               <img src={heroProfile} alt={resumeData.name} className="avatar-img" />
             </div>
-            <div className="status-badge" title="Open to Opportunities"></div>
+            <div className="status-badge-inner" title="Open to Work"></div>
           </div>
         </motion.div>
       </div>

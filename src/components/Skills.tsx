@@ -18,16 +18,15 @@ const isHighlighted = (skill: string) => {
 const Skills: React.FC = () => {
   return (
     <section id="skills" className="skills-section">
-      <motion.div 
-        className="section-header"
+      <motion.h2 
+        className="section-title"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        <p className="subtitle">Tech Stack & Tools</p>
-        <h2 className="title">Skills & <span className="gradient-text">Expertise</span></h2>
-      </motion.div>
+        Skills & Technologies
+      </motion.h2>
 
       <div className="skills-categories-grid">
         {Object.entries(resumeData.skills).map(([category, skills], i) => (
@@ -37,7 +36,7 @@ const Skills: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: (i % 3) * 0.1 }}
+            transition={{ duration: 0.4, delay: (i % 3) * 0.05 }}
           >
             <h3 className="category-title">{category}</h3>
             <div className="pills-wrapper">

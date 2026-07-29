@@ -7,27 +7,26 @@ import './Experience.scss';
 const Experience: React.FC = () => {
   return (
     <section id="experience" className="experience-section">
-      <motion.div 
-        className="section-header"
+      <motion.h2 
+        className="section-title"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        <p className="subtitle">Career Path</p>
-        <h2 className="title">Work <span className="gradient-text">Experience</span></h2>
-      </motion.div>
+        Work Experience
+      </motion.h2>
 
       <div className="timeline-container">
         <div className="timeline-line"></div>
         {resumeData.experience.map((job, i) => (
           <motion.div 
             key={i} 
-            className="timeline-item"
-            initial={{ opacity: 0, x: i % 2 === 0 ? -20 : 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            className={`timeline-item ${i % 2 === 0 ? 'left' : 'right'}`}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: i * 0.15 }}
+            transition={{ duration: 0.5, delay: i * 0.1 }}
           >
             <div className="timeline-node">
               <FiBriefcase />

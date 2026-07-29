@@ -1,14 +1,14 @@
 import React, { useEffect, useRef } from 'react';
 import './ParticleBackground.scss';
 
-interface Star {
+interface Node {
   x: number;
   y: number;
-  size: number;
-  speedX: number;
-  speedY: number;
+  targetX: number;
+  targetY: number;
+  radius: number;
   opacity: number;
-  direction: number;
+  speed: number;
 }
 
 const ParticleBackground: React.FC = () => {
@@ -33,56 +33,60 @@ const ParticleBackground: React.FC = () => {
 
     window.addEventListener('resize', handleResize);
 
-    // Create soft drifting stars/orbs
-    const starCount = Math.min(Math.floor((width * height) / 18000), 50);
-    const stars: Star[] = [];
+    // Create drifting abstract geometry node structure
+    const nodeCount = 35;
+    const nodes: Node[] = [];
 
-    for (let i = 0; i < starCount; i++) {
-      stars.push({
+    for (let i = 0; i < nodeCount; i++) {
+      nodes.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        size: Math.random() * 3 + 1, // larger soft orbs
-        speedX: (Math.random() - 0.5) * 0.15, // very slow drift
-        speedY: (Math.random() - 0.5) * 0.15,
-        opacity: Math.random() * 0.4 + 0.1,
-        direction: Math.random() > 0.5 ? 1 : -1,
+        targetX: Math.random() * width,
+        targetY: Math.random() * height,
+        radius: Math.random() * 2 + 1,
+        opacity: Math.random() * 0.3 + 0.1,
+        speed: Math.random() * 0.002 + 0.0005,
       });
     }
 
     const render = () => {
       ctx.clearRect(0, 0, width, height);
 
-      // Draw soft drifting orbs
-      for (let i = 0; i < stars.length; i++) {
-        const s = stars[i];
+      // Draw modern drifting geometry
+      for (let i = 0; i < nodes.length; i++) {
+        const n = nodes[i];
         
-        // Update position
-        s.x += s.speedX;
-        s.y += s.speedY;
-        
-        // Pulsate opacity slightly
-        s.opacity += 0.003 * s.direction;
-        if (s.opacity > 0.6) {
-          s.direction = -1;
-        } else if (s.opacity < 0.1) {
-          s.direction = 1;
+        // Linear interpolation towards targets for extremely smooth movement
+        n.x += (n.targetX - n.x) * n.speed;
+        n.y += (n.targetY - n.y) * n.speed;
+
+        // If close to target, pick another target
+        const distToTarget = Math.hypot(n.targetX - n.x, n.targetY - n.y);
+        if (distToTarget < 50) {
+          n.targetX = Math.random() * width;
+          n.targetY = Math.random() * height;
         }
 
-        // Wrap around edges
-        if (s.x < 0) s.x = width;
-        if (s.x > width) s.x = 0;
-        if (s.y < 0) s.y = height;
-        if (s.y > height) s.y = 0;
-
-        // Draw orb with gradient shadow
-        const gradient = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, s.size * 2);
-        gradient.addColorStop(0, `rgba(100, 255, 218, ${s.opacity})`);
-        gradient.addColorStop(1, `rgba(100, 255, 218, 0)`);
-
+        // Draw soft nodes
         ctx.beginPath();
-        ctx.arc(s.x, s.y, s.size * 2, 0, Math.PI * 2);
-        ctx.fillStyle = gradient;
+        ctx.arc(n.x, n.y, n.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(100, 255, 218, ${n.opacity})`;
         ctx.fill();
+
+        // Draw light connecting webs to adjacent nodes with no duplicate lines
+        for (let j = i + 1; j < nodes.length; j++) {
+          const n2 = nodes[j];
+          const dist = Math.hypot(n.x - n2.x, n.y - n2.y);
+          if (dist < 180) {
+            ctx.beginPath();
+            ctx.moveTo(n.x, n.y);
+            ctx.lineTo(n2.x, n2.y);
+            const lineAlpha = (1 - dist / 180) * 0.06;
+            ctx.strokeStyle = `rgba(100, 255, 218, ${lineAlpha})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
       }
 
       animationFrameId = requestAnimationFrame(render);
