@@ -66,17 +66,18 @@
       line-height: 1.7;
     }
 
-    /* Availability Banner ABOVE buttons */
+    /* Availability Banner — between description and buttons on the LEFT */
     .availability-banner {
       display: flex;
       align-items: flex-start;
       gap: 12px;
-      background-color: rgba(16, 185, 129, 0.06);
-      border: 1px solid rgba(16, 185, 129, 0.22);
+      background-color: rgba(16, 185, 129, 0.07);
+      border: 1px solid rgba(16, 185, 129, 0.25);
       border-radius: 8px;
       padding: 12px 16px;
       margin-top: 24px;
       max-width: 520px;
+      width: 100%;
 
       .status-indicator {
         width: 10px;
