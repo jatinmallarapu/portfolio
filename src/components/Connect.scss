@@ -38,8 +38,21 @@
     .info-cards {
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      margin-bottom: 24px;
+      gap: 16px;
+      margin-bottom: 30px;
+
+      .contact-cards-row {
+        display: flex;
+        gap: 16px;
+
+        .info-card {
+          flex: 1;
+        }
+
+        @media (max-width: 600px) {
+          flex-direction: column;
+        }
+      }
 
       .info-card {
         display: flex;

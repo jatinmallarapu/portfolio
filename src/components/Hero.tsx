@@ -113,7 +113,16 @@ const Hero: React.FC = () => {
             <div className="avatar-inner">
               <img src={heroProfile} alt={resumeData.name} className="avatar-img" />
             </div>
-            <div className="status-badge-inner" title="Open to Work"></div>
+            <div className="status-badge-inner">
+              <span className="dot-pulse"></span>
+              <div className="status-tooltip">
+                <div className="tooltip-header">
+                  <span className="tooltip-dot"></span>
+                  <strong>Available May 2026</strong>
+                </div>
+                <p>Available for full-time roles. Authorized to work in the US on OPT (STEM OPT eligible).</p>
+              </div>
+            </div>
           </div>
 
           {/* Contact Info below image */}

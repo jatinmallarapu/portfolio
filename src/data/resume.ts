@@ -2,7 +2,7 @@ export const resumeData = {
   name: "Jatin Mallarapu",
   title: "AI / Machine Learning Engineer",
   location: "Lubbock, TX",
-  phone: "(806)-544-0585",
+  phone: "+1(806)-544-0585",
   email: "jatinmallarapu27@gmail.com",
   linkedin: "https://www.linkedin.com/in/jatinmallarapu",
   github: "https://github.com/jatinmallarapu",
