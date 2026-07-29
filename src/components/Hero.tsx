@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
 import { resumeData } from '../data/resume';
 import heroProfile from '../assets/hero_profile.jpg';
 import './Hero.scss';
@@ -41,95 +40,76 @@ const Hero: React.FC = () => {
 
   return (
     <section id="home" className="hero-section">
-      <div className="hero-content centered">
-        {/* Profile Image with Animated Gradient Ring */}
+      <div className="hero-content">
+        {/* Left Side: Info */}
+        <div className="hero-text">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            <h1 className="greeting">Hi, my name is</h1>
+          </motion.div>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <h2 className="name">{resumeData.name}.</h2>
+          </motion.div>
+          
+          {/* Typing Role Box */}
+          <motion.div
+            className="role-box"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
+            <span className="role-bracket">[ </span>
+            <span className="role-text">{currentText}</span>
+            <span className="role-cursor">|</span>
+            <span className="role-bracket"> ]</span>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            <p className="description">
+              AI/ML Engineer with 4+ years building production-grade LLM systems, RAG pipelines, and automated MLOps platforms across banking, healthcare, and telecom — AWS · Azure · GCP.
+            </p>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="hero-buttons"
+          >
+            <a href="#connect" className="btn hero-btn">
+              Get In Touch
+            </a>
+            <a href={`${import.meta.env.BASE_URL}JatinMallarapu_Resume.pdf`} target="_blank" rel="noreferrer" className="btn hero-btn">
+              Download Resume
+            </a>
+          </motion.div>
+        </div>
+
+        {/* Right Side: Photo with Spinning Ring and Status Badge */}
         <motion.div
-          className="hero-avatar-wrapper"
+          className="hero-visual"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <div className="gradient-ring"></div>
-          <div className="avatar-inner">
-            <img src={heroProfile} alt={resumeData.name} className="avatar-img" />
+          <div className="hero-avatar-wrapper">
+            <div className="gradient-ring"></div>
+            <div className="avatar-inner">
+              <img src={heroProfile} alt={resumeData.name} className="avatar-img" />
+            </div>
+            <div className="status-badge" title="Open to Opportunities"></div>
           </div>
-          <div className="status-badge" title="Open to Opportunities"></div>
-        </motion.div>
-
-        {/* Greeting */}
-        <motion.p
-          className="greeting-text"
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          Hello, I'm
-        </motion.p>
-
-        {/* Name */}
-        <motion.h1
-          className="hero-name"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-        >
-          <span className="gradient-text">{resumeData.name}</span>
-        </motion.h1>
-
-        {/* Typing Role Box */}
-        <motion.div
-          className="role-box"
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        >
-          <span className="role-bracket">[ </span>
-          <span className="role-text">{currentText}</span>
-          <span className="role-cursor">|</span>
-          <span className="role-bracket"> ]</span>
-        </motion.div>
-
-        {/* Description Summary */}
-        <motion.p
-          className="hero-summary"
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-        >
-          AI/ML Engineer with 4+ years building production-grade LLM systems, RAG pipelines, and automated MLOps platforms across banking, healthcare, and telecom — AWS · Azure · GCP.
-        </motion.p>
-
-        {/* Action Buttons */}
-        <motion.div
-          className="hero-actions"
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-        >
-          <a href="#projects" className="btn-primary">
-            Explore My Work
-          </a>
-          <a href="#connect" className="btn-secondary">
-            Get In Touch
-          </a>
-        </motion.div>
-
-        {/* Social Icons */}
-        <motion.div
-          className="hero-socials"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.7 }}
-        >
-          <a href={resumeData.github} target="_blank" rel="noreferrer" aria-label="GitHub">
-            <FiGithub />
-          </a>
-          <a href={resumeData.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
-            <FiLinkedin />
-          </a>
-          <a href={`mailto:${resumeData.email}`} aria-label="Email">
-            <FiMail />
-          </a>
         </motion.div>
       </div>
     </section>

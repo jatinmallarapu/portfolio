@@ -1,31 +1,98 @@
 .hero-section {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  min-height: 90vh;
-  padding: 60px 0 40px;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 0;
   position: relative;
   z-index: 1;
 
-  .hero-content.centered {
-    display: flex;
-    flex-direction: column;
+  .hero-content {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
     align-items: center;
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
+    gap: 40px;
     width: 100%;
+  }
 
-    /* Avatar with Gradient Spinning Ring */
+  .hero-text {
+    .greeting {
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: clamp(16px, 5vw, 20px);
+      font-weight: 400;
+      margin: 0 0 20px 4px;
+    }
+
+    .name {
+      margin: 0;
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .role-box {
+      font-family: var(--font-mono);
+      font-size: clamp(18px, 3.5vw, 24px);
+      color: var(--accent);
+      margin: 15px 0 20px 4px;
+      display: flex;
+      align-items: center;
+
+      .role-bracket {
+        color: var(--text-secondary);
+        opacity: 0.7;
+      }
+
+      .role-text {
+        color: var(--accent);
+        margin: 0 4px;
+      }
+
+      .role-cursor {
+        color: var(--accent);
+        animation: blink 1s step-end infinite;
+        font-weight: bold;
+      }
+    }
+
+    .description {
+      margin: 20px 0 0;
+      max-width: 600px;
+      color: var(--text-secondary);
+      font-size: clamp(16px, 2.5vw, 18px);
+      font-weight: 400;
+      line-height: 1.7;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+
+      .hero-btn {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .hero-visual {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
     .hero-avatar-wrapper {
       position: relative;
-      width: 120px;
-      height: 120px;
-      margin-bottom: 24px;
+      width: 280px;
+      height: 280px;
 
       .gradient-ring {
         position: absolute;
-        inset: -4px;
+        inset: -6px;
         border-radius: 50%;
         background: linear-gradient(135deg, #64ffda, #3b82f6, #a855f7);
         animation: spinRing 6s linear infinite;
@@ -39,7 +106,7 @@
         border-radius: 50%;
         overflow: hidden;
         background-color: var(--bg-primary);
-        padding: 3px;
+        padding: 5px;
         z-index: 1;
 
         .avatar-img {
@@ -52,142 +119,53 @@
 
       .status-badge {
         position: absolute;
-        bottom: 4px;
-        right: 4px;
-        width: 16px;
-        height: 16px;
+        bottom: 20px;
+        right: 20px;
+        width: 24px;
+        height: 24px;
         border-radius: 50%;
         background-color: #10b981;
-        border: 2px solid var(--bg-primary);
-        box-shadow: 0 0 10px rgba(16, 185, 129, 0.6);
+        border: 4px solid var(--bg-primary);
+        box-shadow: 0 0 15px rgba(16, 185, 129, 0.6);
         z-index: 2;
       }
     }
+  }
 
-    /* Greeting Text */
-    .greeting-text {
-      font-family: var(--font-mono);
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      color: var(--accent);
-      margin-bottom: 12px;
+  @media (max-width: 992px) {
+    .hero-content {
+      grid-template-columns: 1.1fr 1fr;
+      gap: 30px;
+    }
+    .hero-visual {
+      .hero-avatar-wrapper {
+        width: 220px;
+        height: 220px;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-content {
+      grid-template-columns: 1fr;
+      gap: 50px;
     }
 
-    /* Hero Name */
-    .hero-name {
-      font-size: clamp(40px, 7vw, 72px);
-      font-weight: 700;
-      line-height: 1.1;
-      margin-bottom: 16px;
-    }
-
-    /* Typing Role Box */
-    .role-box {
-      font-family: var(--font-mono);
-      font-size: clamp(16px, 3.5vw, 22px);
-      color: var(--text-primary);
-      margin-bottom: 24px;
-      display: flex;
-      align-items: center;
+    .hero-visual {
+      order: -1;
       justify-content: center;
 
-      .role-bracket {
-        color: var(--accent);
-        opacity: 0.7;
-      }
-
-      .role-text {
-        color: var(--text-primary);
-        margin: 0 4px;
-      }
-
-      .role-cursor {
-        color: var(--accent);
-        animation: blink 1s step-end infinite;
-        font-weight: bold;
-      }
-    }
-
-    /* Summary Description */
-    .hero-summary {
-      color: var(--text-secondary);
-      font-size: clamp(15px, 2.5vw, 18px);
-      line-height: 1.7;
-      max-width: 680px;
-      margin-bottom: 36px;
-    }
-
-    /* Action Buttons */
-    .hero-actions {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-bottom: 36px;
-
-      .btn-primary {
-        padding: 14px 28px;
-        background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
-        color: #ffffff;
-        font-weight: 600;
-        font-size: 15px;
-        border-radius: 10px;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 20px rgba(37, 99, 235, 0.3);
-
-        &:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 6px 25px rgba(37, 99, 235, 0.5);
-        }
-      }
-
-      .btn-secondary {
-        padding: 14px 28px;
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        color: var(--text-primary);
-        font-weight: 600;
-        font-size: 15px;
-        border-radius: 10px;
-        transition: all 0.3s ease;
-        background-color: rgba(255, 255, 255, 0.03);
-
-        &:hover {
-          border-color: var(--accent);
-          color: var(--accent);
-          transform: translateY(-2px);
-          background-color: var(--accent-tint);
-        }
-      }
-    }
-
-    /* Social Icons Row */
-    .hero-socials {
-      display: flex;
-      gap: 24px;
-      align-items: center;
-
-      a {
-        color: var(--text-secondary);
-        font-size: 22px;
-        transition: all 0.2s ease;
-
-        &:hover {
-          color: var(--accent);
-          transform: translateY(-3px) scale(1.1);
-        }
+      .hero-avatar-wrapper {
+        width: 200px;
+        height: 200px;
       }
     }
   }
 }
 
 @keyframes spinRing {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 @keyframes blink {

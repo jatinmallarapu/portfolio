@@ -1,13 +1,14 @@
 import React, { useEffect, useRef } from 'react';
 import './ParticleBackground.scss';
 
-interface Particle {
+interface Star {
   x: number;
   y: number;
-  vx: number;
-  vy: number;
-  radius: number;
-  alpha: number;
+  size: number;
+  speedX: number;
+  speedY: number;
+  opacity: number;
+  direction: number;
 }
 
 const ParticleBackground: React.FC = () => {
@@ -32,57 +33,56 @@ const ParticleBackground: React.FC = () => {
 
     window.addEventListener('resize', handleResize);
 
-    // Create particles
-    const particleCount = Math.min(Math.floor((width * height) / 15000), 65);
-    const particles: Particle[] = [];
+    // Create soft drifting stars/orbs
+    const starCount = Math.min(Math.floor((width * height) / 18000), 50);
+    const stars: Star[] = [];
 
-    for (let i = 0; i < particleCount; i++) {
-      particles.push({
+    for (let i = 0; i < starCount; i++) {
+      stars.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.4,
-        vy: (Math.random() - 0.5) * 0.4,
-        radius: Math.random() * 1.5 + 1,
-        alpha: Math.random() * 0.5 + 0.2,
+        size: Math.random() * 3 + 1, // larger soft orbs
+        speedX: (Math.random() - 0.5) * 0.15, // very slow drift
+        speedY: (Math.random() - 0.5) * 0.15,
+        opacity: Math.random() * 0.4 + 0.1,
+        direction: Math.random() > 0.5 ? 1 : -1,
       });
     }
 
     const render = () => {
       ctx.clearRect(0, 0, width, height);
 
-      // Update and draw particles
-      for (let i = 0; i < particles.length; i++) {
-        const p = particles[i];
-        p.x += p.vx;
-        p.y += p.vy;
+      // Draw soft drifting orbs
+      for (let i = 0; i < stars.length; i++) {
+        const s = stars[i];
+        
+        // Update position
+        s.x += s.speedX;
+        s.y += s.speedY;
+        
+        // Pulsate opacity slightly
+        s.opacity += 0.003 * s.direction;
+        if (s.opacity > 0.6) {
+          s.direction = -1;
+        } else if (s.opacity < 0.1) {
+          s.direction = 1;
+        }
 
-        if (p.x < 0) p.x = width;
-        if (p.x > width) p.x = 0;
-        if (p.y < 0) p.y = height;
-        if (p.y > height) p.y = 0;
+        // Wrap around edges
+        if (s.x < 0) s.x = width;
+        if (s.x > width) s.x = 0;
+        if (s.y < 0) s.y = height;
+        if (s.y > height) s.y = 0;
+
+        // Draw orb with gradient shadow
+        const gradient = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, s.size * 2);
+        gradient.addColorStop(0, `rgba(100, 255, 218, ${s.opacity})`);
+        gradient.addColorStop(1, `rgba(100, 255, 218, 0)`);
 
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(100, 255, 218, ${p.alpha * 0.6})`;
+        ctx.arc(s.x, s.y, s.size * 2, 0, Math.PI * 2);
+        ctx.fillStyle = gradient;
         ctx.fill();
-
-        // Connect nearby particles
-        for (let j = i + 1; j < particles.length; j++) {
-          const p2 = particles[j];
-          const dx = p.x - p2.x;
-          const dy = p.y - p2.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-
-          if (dist < 130) {
-            ctx.beginPath();
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(p2.x, p2.y);
-            const lineAlpha = (1 - dist / 130) * 0.15;
-            ctx.strokeStyle = `rgba(100, 255, 218, ${lineAlpha})`;
-            ctx.lineWidth = 0.8;
-            ctx.stroke();
-          }
-        }
       }
 
       animationFrameId = requestAnimationFrame(render);
