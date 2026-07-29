@@ -6,15 +6,17 @@
   top: 0;
   z-index: 100;
   width: 100%;
-  background-color: var(--bg-nav, rgba(10, 25, 47, 0.97));
-  border-bottom: 1px solid var(--bg-tertiary);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background-color: rgba(5, 14, 30, 0.97);
+  border-bottom: 1px solid rgba(100, 255, 218, 0.12);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   transition: all 0.3s ease;
+  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.5);
 
   &.scrolled {
-    box-shadow: 0 4px 30px -8px rgba(0, 0, 0, 0.5);
-    background-color: var(--bg-nav, rgba(8, 20, 40, 0.98));
+    box-shadow: 0 4px 30px -8px rgba(0, 0, 0, 0.7);
+    background-color: rgba(4, 11, 24, 0.99);
+    border-bottom-color: rgba(100, 255, 218, 0.2);
   }
 
   nav {

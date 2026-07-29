@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FiMail, FiMapPin, FiCopy, FiCheck, FiSend, FiGithub, FiLinkedin } from 'react-icons/fi';
+import { FiMail, FiMapPin, FiCopy, FiCheck, FiSend, FiGithub, FiLinkedin, FiPhone } from 'react-icons/fi';
 import { resumeData } from '../data/resume';
 import './Connect.scss';
 
@@ -82,6 +82,17 @@ const Connect = () => {
               <button className="copy-btn" onClick={handleCopy} aria-label="Copy email">
                 {copied ? <FiCheck /> : <FiCopy />}
               </button>
+            </motion.div>
+
+            <motion.div 
+              className="info-card"
+              whileHover={{ scale: 1.02 }}
+              transition={{ type: 'spring', stiffness: 300 }}
+            >
+              <div className="card-left">
+                <FiPhone className="card-icon" />
+                <a href={`tel:${resumeData.phone.replace(/[^0-9+]/g, '')}`} className="card-text">{resumeData.phone}</a>
+              </div>
             </motion.div>
 
             <motion.div 

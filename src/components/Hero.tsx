@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { FiMapPin, FiMail, FiPhone } from 'react-icons/fi';
 import { resumeData } from '../data/resume';
 import heroProfile from '../assets/hero_profile.jpg';
 import './Hero.scss';
@@ -81,19 +82,6 @@ const Hero: React.FC = () => {
             </p>
           </motion.div>
 
-          {/* Official Availability Status Alert Banner */}
-          <motion.div 
-            className="availability-banner"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.45 }}
-          >
-            <span className="status-indicator"></span>
-            <div className="availability-info">
-              <strong>Available May 2026</strong> for full-time roles. Authorized to work in the US on OPT (STEM OPT eligible). Open to relocate.
-            </div>
-          </motion.div>
-
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -112,13 +100,14 @@ const Hero: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* Right Side: Middle-aligned Circular Avatar with Spinning Ring & Status Badge */}
+        {/* Right Side: Photo + Contact Info + Status */}
         <motion.div
           className="hero-visual"
-          initial={{ opacity: 0, scale: 0.8 }}
+          initial={{ opacity: 0, scale: 0.85 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
+          {/* Circular Avatar */}
           <div className="hero-avatar-wrapper">
             <div className="gradient-ring"></div>
             <div className="avatar-inner">
@@ -126,6 +115,41 @@ const Hero: React.FC = () => {
             </div>
             <div className="status-badge-inner" title="Open to Work"></div>
           </div>
+
+          {/* Contact Info below image */}
+          <motion.div 
+            className="contact-info"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.7 }}
+          >
+            <div className="contact-row">
+              <FiMapPin className="contact-icon location-icon" />
+              <span>TX, USA</span>
+            </div>
+            <div className="contact-row">
+              <FiMail className="contact-icon email-icon" />
+              <a href="mailto:jatinmallarapu27@gmail.com">jatinmallarapu27@gmail.com</a>
+            </div>
+            <div className="contact-row">
+              <FiPhone className="contact-icon phone-icon" />
+              <a href="tel:+18065440585">+1 (806) 544-0585</a>
+            </div>
+          </motion.div>
+
+          {/* Availability Status Banner */}
+          <motion.div 
+            className="availability-banner"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.8 }}
+          >
+            <span className="status-indicator"></span>
+            <div className="availability-info">
+              <strong>Available May 2026</strong>
+              <span>Available for full-time roles. Authorized to work in the US on OPT (STEM OPT eligible).</span>
+            </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>

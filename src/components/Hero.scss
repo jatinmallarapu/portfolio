@@ -10,12 +10,13 @@
 
   .hero-content {
     display: grid;
-    grid-template-columns: 1.3fr 1fr;
+    grid-template-columns: 1.2fr 1fr;
     align-items: center;
-    gap: 40px;
+    gap: 60px;
     width: 100%;
   }
 
+  /* ---- Left Text Column ---- */
   .hero-text {
     .greeting {
       color: var(--accent);
@@ -27,16 +28,15 @@
 
     .name {
       margin: 0;
-      font-size: clamp(36px, 6vw, 60px);
+      font-size: clamp(36px, 5.5vw, 58px);
       font-weight: 700;
       color: var(--text-primary);
     }
 
     .role-box {
       font-family: var(--font-mono);
-      font-size: clamp(16px, 3.5vw, 22px);
-      color: var(--accent);
-      margin: 10px 0 20px 4px;
+      font-size: clamp(16px, 3vw, 22px);
+      margin: 12px 0 20px 4px;
       display: flex;
       align-items: center;
 
@@ -59,62 +59,27 @@
 
     .description {
       margin: 15px 0 0;
-      max-width: 600px;
+      max-width: 520px;
       color: var(--text-secondary);
-      font-size: clamp(15px, 2.5vw, 17px);
+      font-size: clamp(14px, 2.2vw, 16px);
       font-weight: 400;
-      line-height: 1.6;
-    }
-
-    /* Professional Availability Alert Banner */
-    .availability-banner {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      background-color: rgba(16, 185, 129, 0.06);
-      border: 1px solid rgba(16, 185, 129, 0.2);
-      border-radius: 8px;
-      padding: 12px 16px;
-      margin-top: 24px;
-      max-width: 600px;
-      text-align: left;
-
-      .status-indicator {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background-color: #10b981;
-        box-shadow: 0 0 8px rgba(16, 185, 129, 0.8);
-        flex-shrink: 0;
-        animation: pulseStatus 2s infinite;
-      }
-
-      .availability-info {
-        font-size: 14px;
-        color: #a7f3d0;
-        line-height: 1.4;
-
-        strong {
-          color: #10b981;
-          font-weight: 600;
-        }
-      }
+      line-height: 1.7;
     }
 
     .hero-buttons {
       display: flex;
       gap: 12px;
-      margin-top: 32px;
+      margin-top: 36px;
       flex-wrap: wrap;
 
       .hero-btn {
-        font-size: 14px;
-        padding: 1rem 1.4rem;
-        
+        font-size: 13px;
+        padding: 0.9rem 1.3rem;
+
         &.download-btn {
-          background-color: rgba(100, 255, 218, 0.05);
+          background-color: rgba(100, 255, 218, 0.04);
           border-color: var(--accent);
-          
+
           &:hover {
             background-color: var(--accent-tint);
           }
@@ -123,20 +88,23 @@
     }
   }
 
+  /* ---- Right Visual Column ---- */
   .hero-visual {
-    position: relative;
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
     align-items: center;
+    gap: 20px;
 
+    /* Circular Avatar with Spinning Ring */
     .hero-avatar-wrapper {
       position: relative;
-      width: 280px;
-      height: 280px;
+      width: 250px;
+      height: 250px;
+      flex-shrink: 0;
 
       .gradient-ring {
         position: absolute;
-        inset: -6px;
+        inset: -5px;
         border-radius: 50%;
         background: linear-gradient(135deg, #64ffda, #3b82f6, #a855f7);
         animation: spinRing 6s linear infinite;
@@ -157,35 +125,120 @@
           width: 100%;
           height: 100%;
           object-fit: cover;
+          object-position: center top;
           border-radius: 50%;
         }
       }
 
       .status-badge-inner {
         position: absolute;
-        bottom: 22px;
-        right: 22px;
-        width: 22px;
-        height: 22px;
+        bottom: 20px;
+        right: 20px;
+        width: 20px;
+        height: 20px;
         border-radius: 50%;
         background-color: #10b981;
-        border: 4px solid var(--bg-primary);
-        box-shadow: 0 0 15px rgba(16, 185, 129, 0.6);
+        border: 3px solid var(--bg-primary);
+        box-shadow: 0 0 14px rgba(16, 185, 129, 0.7);
         z-index: 2;
+      }
+    }
+
+    /* Contact Info block below image */
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      width: 100%;
+      max-width: 280px;
+      padding: 14px 18px;
+      background-color: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 10px;
+
+      .contact-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 13px;
+        color: var(--text-secondary);
+
+        a {
+          color: var(--text-secondary);
+          transition: color 0.2s ease;
+
+          &:hover {
+            color: var(--accent);
+          }
+        }
+
+        .contact-icon {
+          flex-shrink: 0;
+          font-size: 14px;
+
+          &.location-icon { color: #a855f7; }
+          &.email-icon    { color: #3b82f6; }
+          &.phone-icon    { color: #10b981; }
+        }
+      }
+    }
+
+    /* Availability Banner below contact info */
+    .availability-banner {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background-color: rgba(16, 185, 129, 0.06);
+      border: 1px solid rgba(16, 185, 129, 0.22);
+      border-radius: 8px;
+      padding: 12px 16px;
+      width: 100%;
+      max-width: 280px;
+
+      .status-indicator {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: #10b981;
+        box-shadow: 0 0 8px rgba(16, 185, 129, 0.8);
+        flex-shrink: 0;
+        margin-top: 3px;
+        animation: pulseStatus 2s infinite;
+      }
+
+      .availability-info {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        font-size: 12.5px;
+        line-height: 1.5;
+
+        strong {
+          color: #10b981;
+          font-size: 13px;
+          font-weight: 600;
+        }
+
+        span {
+          color: #a7f3d0;
+        }
       }
     }
   }
 
-  @media (max-width: 992px) {
+  /* ---- Responsive ---- */
+  @media (max-width: 1050px) {
     .hero-content {
       grid-template-columns: 1.1fr 1fr;
-      gap: 30px;
+      gap: 40px;
     }
-    .hero-visual {
-      .hero-avatar-wrapper {
-        width: 220px;
-        height: 220px;
-      }
+    .hero-visual .hero-avatar-wrapper {
+      width: 210px;
+      height: 210px;
+    }
+    .hero-visual .contact-info,
+    .hero-visual .availability-banner {
+      max-width: 210px;
     }
   }
 
@@ -197,27 +250,32 @@
 
     .hero-visual {
       order: -1;
-      justify-content: center;
 
       .hero-avatar-wrapper {
-        width: 200px;
-        height: 200px;
+        width: 190px;
+        height: 190px;
+      }
+
+      .contact-info,
+      .availability-banner {
+        max-width: 300px;
+        width: 100%;
       }
     }
   }
 }
 
 @keyframes spinRing {
-  0% { transform: rotate(0deg); }
+  0%   { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
 
 @keyframes blink {
   0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+  50%       { opacity: 0; }
 }
 
 @keyframes pulseStatus {
   0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.6; transform: scale(0.95); }
+  50%       { opacity: 0.6; transform: scale(0.95); }
 }
