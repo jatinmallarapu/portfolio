@@ -92,7 +92,7 @@ const Hero: React.FC = () => {
             <span className="status-indicator"></span>
             <div className="availability-info">
               <strong>Available May 2026</strong>
-              <span>Available for full-time roles. Authorized to work in the US on OPT (STEM OPT eligible).</span>
+              <p>Available for full-time roles. Authorized to work in the US on OPT (STEM OPT eligible).</p>
             </div>
           </motion.div>
 
