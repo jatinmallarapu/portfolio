@@ -12,7 +12,7 @@
     display: grid;
     grid-template-columns: 1.2fr 1fr;
     align-items: center;
-    gap: 60px;
+    gap: 50px;
     width: 100%;
   }
 
@@ -66,10 +66,52 @@
       line-height: 1.7;
     }
 
+    /* Availability Banner ABOVE buttons */
+    .availability-banner {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background-color: rgba(16, 185, 129, 0.06);
+      border: 1px solid rgba(16, 185, 129, 0.22);
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-top: 24px;
+      max-width: 520px;
+
+      .status-indicator {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: #10b981;
+        box-shadow: 0 0 8px rgba(16, 185, 129, 0.8);
+        flex-shrink: 0;
+        margin-top: 3px;
+        animation: pulseStatus 2s infinite;
+      }
+
+      .availability-info {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        font-size: 13px;
+        line-height: 1.5;
+
+        strong {
+          color: #10b981;
+          font-size: 13.5px;
+          font-weight: 600;
+        }
+
+        span {
+          color: #a7f3d0;
+        }
+      }
+    }
+
     .hero-buttons {
       display: flex;
       gap: 12px;
-      margin-top: 36px;
+      margin-top: 28px;
       flex-wrap: wrap;
 
       .hero-btn {
@@ -98,8 +140,8 @@
     /* Circular Avatar with Spinning Ring */
     .hero-avatar-wrapper {
       position: relative;
-      width: 250px;
-      height: 250px;
+      width: 260px;
+      height: 260px;
       flex-shrink: 0;
 
       .gradient-ring {
@@ -125,7 +167,7 @@
           width: 100%;
           height: 100%;
           object-fit: cover;
-          object-position: center top;
+          object-position: center 15%;
           border-radius: 50%;
         }
       }
@@ -230,7 +272,7 @@
       flex-direction: column;
       gap: 8px;
       width: 100%;
-      max-width: 280px;
+      max-width: 260px;
       padding: 14px 18px;
       background-color: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(255, 255, 255, 0.07);
@@ -262,46 +304,51 @@
         }
       }
     }
+  }
 
-    /* Availability Banner below contact info */
+  /* ---- Light Mode Overrides ---- */
+  [data-theme='light'] & {
     .availability-banner {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      background-color: rgba(16, 185, 129, 0.06);
-      border: 1px solid rgba(16, 185, 129, 0.22);
-      border-radius: 8px;
-      padding: 12px 16px;
-      width: 100%;
-      max-width: 280px;
-
-      .status-indicator {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background-color: #10b981;
-        box-shadow: 0 0 8px rgba(16, 185, 129, 0.8);
-        flex-shrink: 0;
-        margin-top: 3px;
-        animation: pulseStatus 2s infinite;
-      }
+      background-color: rgba(16, 185, 129, 0.08);
+      border-color: rgba(16, 185, 129, 0.35);
 
       .availability-info {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-        font-size: 12.5px;
-        line-height: 1.5;
-
         strong {
-          color: #10b981;
-          font-size: 13px;
-          font-weight: 600;
+          color: #047857;
         }
 
         span {
-          color: #a7f3d0;
+          color: #065f46;
+          font-weight: 500;
         }
+      }
+    }
+
+    .contact-info {
+      background-color: rgba(0, 0, 0, 0.03);
+      border-color: rgba(0, 0, 0, 0.08);
+
+      .contact-row {
+        color: var(--text-secondary);
+
+        a {
+          color: var(--text-secondary);
+          &:hover { color: var(--accent); }
+        }
+      }
+    }
+
+    .hero-avatar-wrapper .status-badge-inner .status-tooltip {
+      background: rgba(255, 255, 255, 0.98);
+      border-color: rgba(16, 185, 129, 0.4);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12), 0 0 15px rgba(16, 185, 129, 0.15);
+
+      &::after {
+        background: rgba(255, 255, 255, 0.98);
+      }
+
+      p {
+        color: #065f46;
       }
     }
   }
@@ -313,12 +360,11 @@
       gap: 40px;
     }
     .hero-visual .hero-avatar-wrapper {
-      width: 210px;
-      height: 210px;
+      width: 220px;
+      height: 220px;
     }
-    .hero-visual .contact-info,
-    .hero-visual .availability-banner {
-      max-width: 210px;
+    .hero-visual .contact-info {
+      max-width: 220px;
     }
   }
 
@@ -332,12 +378,11 @@
       order: -1;
 
       .hero-avatar-wrapper {
-        width: 190px;
-        height: 190px;
+        width: 200px;
+        height: 200px;
       }
 
-      .contact-info,
-      .availability-banner {
+      .contact-info {
         max-width: 300px;
         width: 100%;
       }

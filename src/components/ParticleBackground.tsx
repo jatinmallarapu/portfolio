@@ -52,28 +52,27 @@ const ParticleBackground: React.FC = () => {
     const render = () => {
       ctx.clearRect(0, 0, width, height);
 
+      const isLightMode = document.documentElement.getAttribute('data-theme') === 'light';
+      const particleColor = isLightMode ? '37, 99, 235' : '100, 255, 218';
+
       // Draw modern drifting geometry
       for (let i = 0; i < nodes.length; i++) {
         const n = nodes[i];
         
-        // Linear interpolation towards targets for extremely smooth movement
         n.x += (n.targetX - n.x) * n.speed;
         n.y += (n.targetY - n.y) * n.speed;
 
-        // If close to target, pick another target
         const distToTarget = Math.hypot(n.targetX - n.x, n.targetY - n.y);
         if (distToTarget < 50) {
           n.targetX = Math.random() * width;
           n.targetY = Math.random() * height;
         }
 
-        // Draw soft nodes
         ctx.beginPath();
         ctx.arc(n.x, n.y, n.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(100, 255, 218, ${n.opacity})`;
+        ctx.fillStyle = `rgba(${particleColor}, ${n.opacity * (isLightMode ? 0.7 : 1)})`;
         ctx.fill();
 
-        // Draw light connecting webs to adjacent nodes with no duplicate lines
         for (let j = i + 1; j < nodes.length; j++) {
           const n2 = nodes[j];
           const dist = Math.hypot(n.x - n2.x, n.y - n2.y);
@@ -81,8 +80,8 @@ const ParticleBackground: React.FC = () => {
             ctx.beginPath();
             ctx.moveTo(n.x, n.y);
             ctx.lineTo(n2.x, n2.y);
-            const lineAlpha = (1 - dist / 180) * 0.06;
-            ctx.strokeStyle = `rgba(100, 255, 218, ${lineAlpha})`;
+            const lineAlpha = (1 - dist / 180) * (isLightMode ? 0.08 : 0.06);
+            ctx.strokeStyle = `rgba(${particleColor}, ${lineAlpha})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }

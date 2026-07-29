@@ -82,6 +82,20 @@ const Hero: React.FC = () => {
             </p>
           </motion.div>
 
+          {/* Availability Status Banner ABOVE buttons */}
+          <motion.div 
+            className="availability-banner"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.45 }}
+          >
+            <span className="status-indicator"></span>
+            <div className="availability-info">
+              <strong>Available May 2026</strong>
+              <span>Available for full-time roles. Authorized to work in the US on OPT (STEM OPT eligible).</span>
+            </div>
+          </motion.div>
+
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -100,7 +114,7 @@ const Hero: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* Right Side: Photo + Contact Info + Status */}
+        {/* Right Side: Circular Avatar + Contact Info */}
         <motion.div
           className="hero-visual"
           initial={{ opacity: 0, scale: 0.85 }}
@@ -143,20 +157,6 @@ const Hero: React.FC = () => {
             <div className="contact-row">
               <FiPhone className="contact-icon phone-icon" />
               <a href="tel:+18065440585">+1 (806) 544-0585</a>
-            </div>
-          </motion.div>
-
-          {/* Availability Status Banner */}
-          <motion.div 
-            className="availability-banner"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.8 }}
-          >
-            <span className="status-indicator"></span>
-            <div className="availability-info">
-              <strong>Available May 2026</strong>
-              <span>Available for full-time roles. Authorized to work in the US on OPT (STEM OPT eligible).</span>
             </div>
           </motion.div>
         </motion.div>
