@@ -1,44 +1,86 @@
 export const resumeData = {
   name: "Jatin Mallarapu",
-  title: "Full Stack Java Developer & AI Engineer",
+  title: "AI / Machine Learning Engineer",
   location: "Lubbock, TX",
   phone: "(806)-544-0585",
-  email: "mallarapujatin@gmail.com",
-  linkedin: "https://www.linkedin.com/in/jatin-mallarapu-2ab3b9231/",
+  email: "jatinmallarapu27@gmail.com",
+  linkedin: "https://www.linkedin.com/in/jatinmallarapu",
   github: "https://github.com/jatinmallarapu",
   leetcode: "https://leetcode.com/u/Jatin__2003/",
-  summary: "Results-driven Full Stack Java Developer and AI Engineer skilled in building scalable web applications and microservices using Java, Spring Boot, React.js, Python, and FastAPI. Experienced in REST APIs, SQL databases, OOP, and deploying secure, maintainable solutions on AWS and Azure.",
+  summary: "AI/ML Engineer with 4+ years of experience designing, building, and deploying production-grade machine learning and generative AI systems across banking, healthcare, telecom, and fintech domains. Proven track record of reducing model deployment time by 35%, improving prediction accuracy by up to 18%, and cutting infrastructure costs by 20% through automated MLOps pipelines. Deep expertise in AWS, Azure, GCP, Docker, Kubernetes, CI/CD, and MLflow, with a strong focus on scalable model monitoring, Generative AI, and enterprise-grade AI infrastructure.",
   skills: {
-    "Programming Languages": ["Java", "JavaScript", "TypeScript", "Python", "SQL", "R"],
-    "Frameworks & Web": ["Spring Boot", "Spring MVC", "Spring Security", "Spring Cloud", "React.js", "Angular", "HTML5", "CSS", "Thymeleaf", "Streamlit"],
-    "APIs & Architecture": ["RESTful APIs", "GraphQL", "J2EE", "JSP", "JDBC", "Microservices", "WebSockets"],
-    "Messaging & Streaming": ["Apache Kafka", "ActiveMQ", "RabbitMQ"],
-    "Databases": ["MySQL", "PostgreSQL", "MongoDB", "Amazon RDS", "SQL Server", "ChromaDB"],
-    "AI Technologies": ["Spring AI", "LangChain", "LLMs", "RAG Pipelines", "NLP", "Neural Networks", "Prompt Engineering", "HuggingFace", "GloVe Embeddings", "CNN-BiLSTM"],
-    "Tools & DevOps": ["AWS", "Azure", "Docker", "Git/GitHub", "Jenkins", "Maven", "Redis", "Swagger", "Postman", "JUnit", "Mockito", "Testcontainers", "Jest", "Cypress", "Linux"]
+    "Languages": ["Python", "SQL", "Bash/Shell Scripting", "PySpark", "Java", "Scala"],
+    "Machine Learning": ["Scikit-learn", "XGBoost", "LightGBM", "Supervised & Unsupervised Learning", "Feature Engineering", "Model Optimization", "Hyperparameter Tuning"],
+    "Deep Learning": ["TensorFlow", "PyTorch", "Keras", "CNN", "RNN", "LSTM", "Transformers"],
+    "Generative AI & LLMs": ["LLMs", "Hugging Face", "LangChain", "OpenAI APIs", "Prompt Engineering", "Fine-Tuning", "PEFT/LoRA", "Quantization", "Distributed Training"],
+    "Agentic AI": ["AI Agents", "Multi-Agent Systems", "Retrieval-Augmented Generation (RAG)", "RAG Architecture", "Vector Search", "Semantic Search", "Knowledge Graphs"],
+    "NLP & Computer Vision": ["BERT", "GPT", "spaCy", "NLTK", "Named Entity Recognition (NER)", "Sentiment Analysis", "OpenCV", "YOLO", "Object Detection", "OCR"],
+    "Vector Databases": ["FAISS", "Pinecone"],
+    "Data Engineering": ["Apache Spark", "ETL/Data Pipelines", "Apache Airflow", "Data Warehousing", "Big Data Technologies"],
+    "API & Deployment": ["FastAPI", "Flask", "REST APIs", "Model Serving", "Real-Time & Batch Inference", "Docker", "Kubernetes", "Microservices", "Event-Driven Architecture", "Spring Boot"],
+    "MLOps & LLMOps": ["MLflow", "Kubeflow", "CI/CD Pipelines", "Feature Store", "Model Registry", "Data Versioning", "Model Monitoring", "A/B Testing"],
+    "Cloud Platforms": ["AWS (SageMaker, S3, Lambda)", "Google Cloud Platform (Vertex AI)", "Microsoft Azure (Azure ML)"],
+    "Databases": ["MySQL", "PostgreSQL", "MongoDB", "NoSQL Databases"],
+    "Visualization & Analytics": ["Pandas", "NumPy", "Matplotlib", "Seaborn", "Tableau", "Power BI", "Jupyter Notebook"],
+    "Governance & Leadership": ["Explainable AI (XAI)", "Responsible AI", "AI Governance", "System Design", "Solution Architecture", "Agile/Scrum", "Stakeholder Management", "Technical Leadership"]
   },
   experience: [
     {
-      role: "Graduate Assistant",
-      company: "TTU Health Sciences Center",
-      location: "Lubbock, Texas, USA",
-      period: "Aug 2024 -- Present",
+      role: "Senior AI/ML Engineer",
+      company: "U.S. Bank",
+      location: "Irving, TX",
+      period: "Sep 2025 -- Present",
       achievements: [
-        "Improved the university student portal for 15,000+ users by building a responsive React.js frontend, reducing server calls by 40% via pagination and debouncing, and engineered 10+ Spring Boot and PostgreSQL backend features following the full SDLC.",
-        "Designed and implemented 20+ secure RESTful APIs for authentication using Spring Security and JWT, applying core OOP principles and Java data structures to reduce code complexity by 25% and ensure clean, maintainable architecture.",
-        "Containerized the application using Docker and automated 50+ Jenkins CI/CD pipelines for zero-downtime AWS deployments, monitored health via CloudWatch, and managed 100GB+ of structured data using JDBC and Amazon RDS PostgreSQL for reliable storage."
+        "Developed scalable AI/ML solutions using Python, TensorFlow, PyTorch, Scikit-learn, XGBoost, and Apache Spark for banking risk analytics and fraud detection, improving fraud-flag precision by 22%.",
+        "Built and optimized Supervised, Unsupervised, and Deep Learning models using Feature Engineering and Hyperparameter Tuning, lifting model accuracy by 15% across risk-scoring use cases.",
+        "Designed Generative AI applications using LLMs, Transformers, Hugging Face, LangChain, and PEFT/LoRA for intelligent document processing, cutting manual review time by 40%.",
+        "Developed RAG Architecture, Agentic AI, and Multi-Agent Systems with Vector Databases (FAISS, Pinecone), reducing enterprise knowledge-retrieval latency by 30%.",
+        "Deployed scalable Flask and REST API services with Docker and Kubernetes supporting Real-Time and Batch Inference for over 1M+ daily transactions.",
+        "Implemented MLOps/LLMOps pipelines using MLflow, Kubeflow, and CI/CD Pipelines, reducing model deployment cycle time from weeks to under 48 hours.",
+        "Processed large-scale banking datasets using Apache Spark, ETL Pipelines, and Apache Airflow across AWS (SageMaker, S3, Lambda) and GCP (Vertex AI), improving pipeline throughput by 25%.",
+        "Applied Explainable AI (XAI) and Responsible AI practices to strengthen model governance and regulatory compliance across all production deployments.",
+        "Collaborated in Agile/Scrum environments on System Design and Solution Architecture, driving end-to-end delivery of enterprise-scale AI solutions."
       ]
     },
     {
-      role: "AI Intern",
-      company: "AIR CENTER VIT AP",
-      location: "Amaravati, Andhra Pradesh, India",
-      period: "Jun 2022 -- July 2024",
+      role: "Machine Learning Engineer",
+      company: "Steward Health Care",
+      location: "Dallas, TX",
+      period: "Feb 2025 -- Aug 2025",
       achievements: [
-        "Developed a CNN-BiLSTM model with an Attention mechanism for toxic language detection, implementing a full NLP pipeline in Python with text preprocessing, tokenization, and GloVe embeddings.",
-        "Engineered and optimized model architecture to achieve 99.41% accuracy, performing hyperparameter tuning and embedding refinements to enhance detection of nuanced toxic language in diverse datasets.",
-        "Validated model performance against 5,000+ real-time user comments using JUnit test cases, identifying patterns, correcting errors, and iteratively reducing false positives by 15% for production readiness.",
-        "Delivered a fully production-ready model integrated into the VIT-AP chatbot, enabling accurate real-time moderation and improving user experience through advanced toxic language detection capabilities."
+        "Designed Machine Learning and Deep Learning solutions using Python, TensorFlow, PyTorch, and XGBoost to improve medication adherence prediction, boosting model accuracy by 17%.",
+        "Engineered scalable ETL and Data Pipelines using Apache Spark, PySpark, and Pandas for high-volume clinical datasets, reducing pipeline runtime by 28%.",
+        "Built Generative AI applications using LLMs, Hugging Face, LangChain, and RAG Architecture to automate clinical document search, saving an estimated 10+ hours/week of manual lookup.",
+        "Developed secure FastAPI, Flask, and REST API services with Docker and Kubernetes for Real-Time and Batch Inference in enterprise AI applications.",
+        "Automated model lifecycle management using MLflow, Kubeflow, Apache Airflow, and CI/CD Pipelines, cutting model release time by 30%.",
+        "Leveraged Microsoft Azure (Azure ML) to train and deploy models while applying Explainable AI (XAI) and A/B Testing to validate a 12% lift in production performance.",
+        "Partnered with healthcare stakeholders in Agile/Scrum environments on System Design and Solution Architecture for pharmacy-focused AI solutions."
+      ]
+    },
+    {
+      role: "Data Scientist",
+      company: "BT Group",
+      location: "Bangalore, India",
+      period: "Jun 2023 -- Jun 2024",
+      achievements: [
+        "Analyzed large-scale telecom datasets using Python, SQL, Pandas, and Scikit-learn, improving customer churn prediction accuracy by 19%.",
+        "Built predictive models using XGBoost, LightGBM, Logistic Regression, and Random Forest with Feature Engineering, driving a 14% increase in customer segmentation precision.",
+        "Developed Time Series Forecasting solutions with Apache Spark, ETL Pipelines, and Apache Airflow to forecast network demand, improving capacity planning accuracy by 20%.",
+        "Created interactive dashboards using Power BI, Tableau, and Matplotlib, enabling real-time KPI monitoring for 5+ executive stakeholder teams.",
+        "Collaborated with cross-functional teams in Agile/Scrum environments, applying AWS and Data Warehousing best practices to enterprise reporting."
+      ]
+    },
+    {
+      role: "Data Scientist",
+      company: "Razorpay",
+      location: "Bangalore, India",
+      period: "Jan 2022 -- May 2023",
+      achievements: [
+        "Collected and analyzed digital payment data using Python, SQL, Pandas, and MySQL, identifying transaction trends across 2M+ monthly records.",
+        "Built machine learning models using Scikit-learn, XGBoost, and LightGBM for payment success prediction and fraud pattern identification, improving fraud detection rate by 16%.",
+        "Developed PySpark and Apache Spark ETL Pipelines to process high-volume payment records, improving data quality and reporting efficiency by 25%.",
+        "Applied Time Series Forecasting and anomaly detection to monitor payment gateway performance, reducing false-positive fraud alerts by 12%.",
+        "Delivered interactive Power BI and Tableau dashboards while collaborating with product managers in Agile/Scrum teams."
       ]
     }
   ],
@@ -108,12 +150,12 @@ export const resumeData = {
   ],
   certifications: [
     {
-      name: "Master Microservices with Spring Boot and Spring Cloud (udemy)",
-      description: "Mastered designing and orchestrating scalable microservices using Spring Boot, Spring Cloud, Docker, and Kubernetes, implementing API Gateways, dynamic service discovery, Fault Tolerance, and distributed tracing."
+      name: "AWS Certified Machine Learning – Specialty",
+      description: "Demonstrates expertise in building, training, tuning, and deploying scalable machine learning models on Amazon Web Services (AWS)."
     },
     {
-      name: "Devops Tools and AWS for Java Microservice Developers (udemy)",
-      description: "Gained expertise in deploying Java microservices using Docker, Kubernetes, Jenkins, and Git, alongside mastering AWS services including EC2, Elastic Beanstalk, Auto Scaling, and Elastic Load Balancer."
+      name: "Microsoft Certified: Azure AI Engineer Associate",
+      description: "Validates ability to design and implement AI solutions on Microsoft Azure, including natural language processing, speech, computer vision, and generative AI."
     }
   ],
   awards: [

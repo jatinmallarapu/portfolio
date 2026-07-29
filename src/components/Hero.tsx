@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { resumeData } from '../data/resume';
+import heroProfile from '../assets/hero_profile.jpg';
 import './Hero.scss';
 
 const Hero = () => {
@@ -34,7 +35,7 @@ const Hero = () => {
             transition={{ duration: 0.5, delay: 0.4 }}
           >
             <p className="description">
-              Full Stack Java Developer &amp; AI Engineer
+              {resumeData.title}
             </p>
           </motion.div>
           <motion.div 
@@ -52,113 +53,23 @@ const Hero = () => {
           </motion.div>
         </div>
 
-        {/* Right side animated visual */}
+        {/* Right side animated image */}
         <motion.div
           className="hero-visual"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <div className="code-window">
-            <div className="window-header">
-              <span className="dot red"></span>
-              <span className="dot yellow"></span>
-              <span className="dot green"></span>
-              <span className="window-title">developer.ts</span>
-            </div>
-            <div className="window-body">
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.8 }}
-              >
-                <span className="code-keyword">const</span>{' '}
-                <span className="code-var">developer</span>{' '}
-                <span className="code-operator">=</span>{' '}
-                <span className="code-bracket">{'{'}</span>
-              </motion.div>
-              <motion.div
-                className="code-indent"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 1.0 }}
-              >
-                <span className="code-prop">name</span>
-                <span className="code-operator">:</span>{' '}
-                <span className="code-string">"Jatin Mallarapu"</span>
-                <span className="code-comma">,</span>
-              </motion.div>
-              <motion.div
-                className="code-indent"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 1.2 }}
-              >
-                <span className="code-prop">role</span>
-                <span className="code-operator">:</span>{' '}
-                <span className="code-string">"Full Stack Developer"</span>
-                <span className="code-comma">,</span>
-              </motion.div>
-              <motion.div
-                className="code-indent"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 1.4 }}
-              >
-                <span className="code-prop">skills</span>
-                <span className="code-operator">:</span>{' '}
-                <span className="code-bracket">[</span>
-                <span className="code-string">"Java"</span>
-                <span className="code-comma">,</span>{' '}
-                <span className="code-string">"React"</span>
-                <span className="code-comma">,</span>{' '}
-                <span className="code-string">"AI"</span>
-                <span className="code-bracket">]</span>
-                <span className="code-comma">,</span>
-              </motion.div>
-              <motion.div
-                className="code-indent"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 1.6 }}
-              >
-                <span className="code-prop">available</span>
-                <span className="code-operator">:</span>{' '}
-                <span className="code-bool">true</span>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 1.8 }}
-              >
-                <span className="code-bracket">{'}'}</span>
-                <span className="code-operator">;</span>
-              </motion.div>
-            </div>
+          <div className="image-container">
+            <motion.img 
+              src={heroProfile} 
+              alt={resumeData.name} 
+              className="hero-img"
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <div className="image-backdrop"></div>
           </div>
-
-          {/* Floating decoration elements */}
-          <motion.div
-            className="float-element float-1"
-            animate={{ y: [0, -15, 0], rotate: [0, 5, 0] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          >
-            &lt;/&gt;
-          </motion.div>
-          <motion.div
-            className="float-element float-2"
-            animate={{ y: [0, 12, 0], rotate: [0, -8, 0] }}
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-          >
-            { '{ }' }
-          </motion.div>
-          <motion.div
-            className="float-element float-3"
-            animate={{ y: [0, -10, 0], scale: [1, 1.1, 1] }}
-            transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
-          >
-            ⚡
-          </motion.div>
         </motion.div>
       </div>
     </section>

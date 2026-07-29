@@ -22,13 +22,13 @@ const About = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           <p>
-            I'm deeply passionate about the ever-evolving world of Software Engineering and Artificial Intelligence. There's something incredibly satisfying about architecting complex backends, optimizing algorithms, and watching scalable solutions come to life. For me, it's not just about the code—it's about solving real-world problems and building applications that make a difference.
+            I'm an AI/ML Engineer with 4+ years of experience designing, building, and deploying production-grade machine learning and generative AI systems. My work spans across banking, healthcare, telecom, and fintech domains, where I've focused on creating scalable solutions that drive real business value.
           </p>
           <p>
-            My curiosity drives me to constantly explore new tools, frameworks, and best practices. Whether it's diving deep into Spring Boot microservices, experimenting with generative AI models, or understanding the intricacies of cloud deployments—I find joy in the continuous learning process. Every challenge is an opportunity to grow, and every complex bug is a lesson that makes me a stronger engineer.
+            My technical expertise lies in building automated MLOps pipelines, developing RAG architectures, and deploying models using AWS, Azure, Docker, and Kubernetes. I find joy in the continuous learning process—whether it's fine-tuning LLMs, optimizing deep learning architectures, or ensuring enterprise-grade AI governance.
           </p>
           <p>
-            I believe in building systems that are not just functional, but performant, secure, and maintainable. The philosophy of writing clean, scalable code resonates deeply with me. I'm always eager to collaborate, share knowledge, and contribute to teams that push the boundaries of what's possible in software development and AI.
+            I believe in building systems that are not just highly accurate, but performant, secure, and maintainable. I'm always eager to collaborate, share knowledge, and contribute to teams that push the boundaries of what's possible in Artificial Intelligence.
           </p>
         </motion.div>
         
@@ -48,7 +48,7 @@ const About = () => {
             <span>GRADUATING (MS) TTU</span>
           </div>
           <div className="stat-card">
-            <h3>AI / Java</h3>
+            <h3>AI / ML</h3>
             <span>FOCUS AREA</span>
           </div>
           <div className="stat-card">
