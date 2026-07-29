@@ -1,45 +1,170 @@
 .experience-section {
-  .jobs-container {
-    .job {
-      margin-bottom: 50px;
+  position: relative;
+  z-index: 1;
 
-      .job-title {
-        font-size: 24px;
-        color: var(--text-primary);
-        
-        .company {
-          color: var(--accent);
+  .section-header {
+    margin-bottom: 50px;
+    text-align: center;
+
+    .subtitle {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .title {
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 700;
+    }
+  }
+
+  .timeline-container {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding-left: 30px;
+
+    .timeline-line {
+      position: absolute;
+      top: 15px;
+      bottom: 15px;
+      left: 14px;
+      width: 2px;
+      background: linear-gradient(180deg, var(--accent) 0%, rgba(59, 130, 246, 0.4) 50%, rgba(35, 53, 84, 0.2) 100%);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 40px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .timeline-node {
+        position: absolute;
+        left: -30px;
+        top: 0;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: var(--bg-primary);
+        border: 2px solid var(--accent);
+        color: var(--accent);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 13px;
+        z-index: 2;
+        box-shadow: 0 0 12px rgba(100, 255, 218, 0.3);
+      }
+
+      .timeline-card {
+        background: var(--bg-secondary);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 12px;
+        padding: 28px;
+        transition: all 0.3s ease;
+
+        &:hover {
+          border-color: rgba(100, 255, 218, 0.3);
+          transform: translateY(-3px);
+          box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
         }
-      }
 
-      .job-period {
-        font-family: var(--font-mono);
-        font-size: 15px;
-        color: var(--text-secondary);
-        margin-bottom: 24px;
-      }
+        .card-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          flex-wrap: wrap;
+          gap: 12px;
+          margin-bottom: 20px;
+          padding-bottom: 16px;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 
-      .job-details {
-        list-style: none;
-        padding: 0;
-
-        li {
-          position: relative;
-          padding-left: 30px;
-          margin-bottom: 14px;
-          color: var(--text-secondary);
-          font-size: 18px;
-          line-height: 1.6;
-
-          &::before {
-            content: "▹";
-            position: absolute;
-            left: 0;
-            color: var(--accent);
+          .job-role {
             font-size: 20px;
-            line-height: 28px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+          }
+
+          .job-company {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--accent);
+          }
+
+          .meta-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+
+            .tag {
+              font-family: var(--font-mono);
+              font-size: 12px;
+              padding: 4px 10px;
+              border-radius: 6px;
+              display: flex;
+              align-items: center;
+              gap: 6px;
+              background-color: rgba(255, 255, 255, 0.04);
+              color: var(--text-secondary);
+              border: 1px solid rgba(255, 255, 255, 0.05);
+
+              svg {
+                color: var(--accent);
+              }
+            }
           }
         }
+
+        .bullet-list {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+
+          li {
+            position: relative;
+            padding-left: 22px;
+            margin-bottom: 10px;
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+
+            &::before {
+              content: "▹";
+              position: absolute;
+              left: 0;
+              color: var(--accent);
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 640px) {
+    .timeline-container {
+      padding-left: 20px;
+
+      .timeline-node {
+        left: -20px;
+        width: 24px;
+        height: 24px;
+        font-size: 11px;
+      }
+
+      .timeline-card {
+        padding: 20px;
       }
     }
   }

@@ -8,11 +8,13 @@ import Education from './components/Education';
 import Accomplishments from './components/Accomplishments';
 import Connect from './components/Connect';
 import Footer from './components/Footer';
+import ParticleBackground from './components/ParticleBackground';
 import './App.scss';
 
 function App() {
   return (
     <div className="app-container">
+      <ParticleBackground />
       <Navbar />
       <main>
         <Hero />

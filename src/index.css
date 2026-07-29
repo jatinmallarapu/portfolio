@@ -130,3 +130,11 @@ section {
   background-color: var(--accent-tint);
   outline: none;
 }
+
+.gradient-text {
+  background: linear-gradient(135deg, #64ffda 0%, #3b82f6 50%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+

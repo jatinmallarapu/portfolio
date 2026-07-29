@@ -158,19 +158,6 @@
         }
       }
     }
-
-    [data-theme='light'] & {
-      .availability-badge {
-        .badge-content {
-          strong {
-            color: #16a34a; /* Darker green for light mode */
-          }
-          p {
-            color: var(--text-secondary); /* Better contrast in light mode */
-          }
-        }
-      }
-    }
   }
 
   // Right column - Form
